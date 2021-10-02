@@ -26,21 +26,21 @@ public class SpringMyBatisController {
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> create(@RequestBody User user) {
-        log.info("User received from request Body "+ user.getEmail());
+        log.debug("User received from request Body "+ user.getEmail());
         userMapper.insert(user);
         return userMapper.findAll();
     }
 
     @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> update(@RequestBody User user) {
-        log.info("User received from request Body "+ user.getEmail());
+        log.debug("User received from request Body "+ user.getEmail());
         userMapper.update(user);
         return userMapper.findAll();
     }
 
     @DeleteMapping(value = "/delete/{id}",  produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> delete(@PathVariable int id) {
-        log.info("User received from Path variable "+ id);
+        log.debug("User received from Path variable "+ id);
         userMapper.delete(id);
         return userMapper.findAll();
     }
